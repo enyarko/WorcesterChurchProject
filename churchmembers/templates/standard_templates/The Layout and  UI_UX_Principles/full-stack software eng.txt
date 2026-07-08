@@ -1,0 +1,577 @@
+To become a full-stack software engineer and technology entrepreneur capable of building complete products for E-Digit Systems and E-Digit Institute.
+
+That changes how you should study these topics. Instead of learning them separately, learn them as one continuous workflow.
+
+Overall Learning Roadmap
+
+HTML
+   │
+CSS
+   │
+Bootstrap
+   │
+JavaScript
+   │
+React
+   │
+Next.js
+   │
+Django REST API
+   │
+Authentication
+   │
+Dashboards
+   │
+Deployment
+   │
+Complete SaaS Products
+
+
+Stage 8 — JavaScript (ES6+, DOM, Fetch API)
+
+Goal: Learn how to make web pages interactive.
+
+Week 1: Modern JavaScript (ES6+)
+
+Topics:
+
+Variables (let, const)
+Arrow functions
+Template literals
+Objects
+Arrays
+Destructuring
+Spread operator
+Modules
+
+Mini Project:
+
+Build a JavaScript contact list.
+
+Week 2: DOM Manipulation
+
+Learn how JavaScript changes HTML.
+
+Example:
+
+document.getElementById("title").textContent = "Welcome to E-Digit";
+
+Build:
+
+Image gallery
+Navigation menu
+Modal window
+Accordion
+Carousel controls
+Week 3: Events
+
+Practice
+
+Button clicks
+Form submission
+Mouse events
+Keyboard events
+
+Project:
+
+Interactive student registration form.
+
+Week 4: Fetch API
+
+Instead of hardcoding data,
+
+learn
+
+Browser
+
+↓
+
+Fetch()
+
+↓
+
+Django
+
+↓
+
+JSON
+
+↓
+
+Display Data
+
+Project:
+
+Load courses from a JSON file.
+
+Stage 9 — React
+
+Now stop thinking about pages.
+
+Think about components.
+
+Homepage
+
+↓
+
+Navbar
+
+↓
+
+Hero
+
+↓
+
+Service Card
+
+↓
+
+Footer
+
+Everything becomes reusable.
+
+Learn:
+
+JSX
+Components
+Props
+State
+Hooks
+Forms
+Routing
+
+Mini Projects
+
+To-do List
+Weather App
+Student Dashboard
+Church Dashboard
+Stage 10 — Next.js
+
+Next.js is React for building complete production applications.
+
+Learn:
+
+React
+
+↓
+
+Next.js
+
+↓
+
+Routing
+
+↓
+
+Layouts
+
+↓
+
+SEO
+
+↓
+
+Server Components
+
+↓
+
+Deployment
+
+Project
+
+Build the E-Digit Systems website.
+
+Then
+
+Build E-Digit Institute.
+
+Stage 11 — REST APIs with Django
+
+Now connect your frontend to your backend.
+
+Workflow
+
+React
+
+↓
+
+Fetch()
+
+↓
+
+Django REST Framework
+
+↓
+
+PostgreSQL
+
+Example
+
+Student List
+
+Browser
+
+↓
+
+GET
+
+/api/students/
+
+↓
+
+Django
+
+↓
+
+Database
+
+↓
+
+JSON
+
+↓
+
+React
+
+Learn:
+
+GET
+POST
+PUT
+PATCH
+DELETE
+
+Projects
+
+Church Members
+
+Students
+
+Clients
+
+Courses
+
+Inventory
+
+Stage 12 — Authentication
+
+Every professional application needs users.
+
+Learn
+
+Registration
+
+↓
+
+Login
+
+↓
+
+Logout
+
+↓
+
+Password Reset
+
+↓
+
+Email Verification
+
+↓
+
+Permissions
+
+↓
+
+Roles
+
+Example
+
+Admin
+
+↓
+
+Manager
+
+↓
+
+Teacher
+
+↓
+
+Student
+
+↓
+
+Visitor
+
+For your church system
+
+Minister
+
+↓
+
+Secretary
+
+↓
+
+Treasurer
+
+↓
+
+Member
+
+↓
+
+Guest
+
+For E-Digit
+
+Administrator
+
+↓
+
+Instructor
+
+↓
+
+Student
+
+↓
+
+Client
+
+↓
+
+Staff
+
+Stage 13 — Dashboards and Charts
+
+This fits perfectly with your economics background.
+
+Learn:
+
+Chart.js
+Apache ECharts
+DataTables
+
+Dashboard layout
+
+-------------------------------------
+
+Sidebar
+
+-------------------------------------
+
+Statistics Cards
+
+-------------------------------------
+
+Revenue Chart
+
+Student Chart
+
+Attendance Chart
+
+-------------------------------------
+
+Recent Activities
+
+-------------------------------------
+
+Projects
+Church Dashboard
+
+Student Dashboard
+
+Sales Dashboard
+
+Finance Dashboard
+
+Research Dashboard
+
+Stage 14 — Deployment
+
+Finally, put everything online.
+
+Workflow
+
+Git
+
+↓
+
+GitHub
+
+↓
+
+Testing
+
+↓
+
+Docker
+
+↓
+
+AWS
+
+↓
+
+Domain Name
+
+↓
+
+HTTPS
+
+↓
+
+Production
+
+Learn
+
+Git
+GitHub
+Environment Variables
+Docker
+Nginx
+Gunicorn
+AWS
+
+PostgreSQL Production
+SSL Certificates
+
+Project
+
+Deploy
+
+E-Digit Systems
+Church Management
+Student Portal
+Build While Learning
+
+Instead of finishing all the tutorials before building something, create one growing project that evolves as you learn.
+
+Phase 1
+
+Static Website
+
+HTML
+
+CSS
+
+Bootstrap
+
+↓
+
+E-Digit Homepage
+
+Phase 2
+
+Interactive Website
+
+JavaScript
+
+↓
+
+Carousel
+
+Forms
+
+Search
+
+Validation
+
+Phase 3
+
+Component-Based Website
+
+React
+
+↓
+
+Reusable Components
+
+Phase 4
+
+Backend
+
+React
+
+↓
+
+Django REST
+
+↓
+
+PostgreSQL
+Phase 5
+
+Authentication
+
+Users
+
+Roles
+
+Permissions
+
+Phase 6
+
+Analytics
+
+Charts
+
+Reports
+
+Tables
+
+Phase 7
+
+Deploy
+
+AWS
+
+GitHub
+
+Docker
+
+A 6-Month Study Plan
+Month	Focus	Main Project
+1	JavaScript (ES6, DOM, Events, Fetch)	Interactive E-Digit homepage
+2	React	Church Management UI
+3	Next.js	E-Digit Systems website
+4	Django REST Framework	Connect frontend to backend
+5	Authentication + Dashboards	Student Portal and Admin Dashboard
+6	Deployment	Publish your applications on AWS
+The project I would recommend
+
+Rather than building unrelated exercises, use one integrated project that grows with your skills.
+
+E-Digit Platform
+
+├── Public Website
+│
+├── E-Digit Institute
+│
+├── Student Portal
+│
+├── Church Management System
+│
+├── CRM
+│
+├── Accounting Dashboard
+│
+├── AI Training Portal
+│
+└── Admin Dashboard
+
+Each new technology you learn adds a new capability to this platform:
+
+JavaScript makes it interactive.
+React makes it modular and reusable.
+Next.js prepares it for production.
+Django REST Framework provides secure backend APIs.
+Authentication manages users and permissions.
+Charts and DataTables turn data into actionable information.
+Deployment makes it accessible to real users.
+
+By the end of this roadmap, you'll have not only learned the technologies but also built a portfolio of production-quality applications that align directly with the vision you've described for E-Digit Systems.

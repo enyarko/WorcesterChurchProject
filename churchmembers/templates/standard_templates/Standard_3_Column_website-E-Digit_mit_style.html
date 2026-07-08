@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>E-Digit Institute</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .top-header {
+      padding: 25px 60px;
+      background-color: #ffffff;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      color: #0b2545;
+    }
+
+    .nav-bar {
+      background-color: #b7e51f;
+      padding: 12px 60px;
+    }
+
+    .hero-text {
+      background-color: #000000;
+      color: white;
+      padding: 80px 70px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 35px;
+    }
+    
+   .hero-text1 h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 35px;
+      color    :#6F4E37;
+    }
+
+
+
+.top-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 60px;
+  background-color: white;
+}
+
+.logo {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+}
+
+.hero-text-title {
+  color: #800020; /* wine red */
+  margin-bottom: 5px;
+   font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+  
+}
+
+
+
+
+
+    .hero-text h2 {
+    font-size: 34px;
+    margin-bottom: 30px;
+    color: #800020;   /* Burgundy */
+}
+
+    .hero-btn {
+      background-color: #a6ff22;
+      border: none;
+      color: #000;
+      padding: 15px 35px;
+      font-weight: 700;
+      border-radius: 8px;
+      width: fit-content;
+    }
+
+    .hero-image {
+      min-height: 520px;
+      background-image: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .program-card {
+      padding: 30px;
+      border: 3px solid #ddd;
+      border-radius: 10px;
+      border-color: #ee82ee;
+      height: 100%;
+      background-color: #ffffff;
+    }
+
+    footer {
+      background-color: #0b2545;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+
+    @media (max-width: 991px) {
+      .hero-text {
+        padding: 50px 30px;
+        min-height: auto;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+          color: white;
+      }
+
+      .hero-text h2 {
+        font-size: 26px;
+        
+      }
+       
+
+      .hero-image {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="flex-container">
+  <header class="top-header">
+    <img src="C:\Users\eddye\WorcesterChurchProject\WorcesterChurchProject\churchmembers\templates\standard_templates\E-digit Logo-Wine Red and and Navy Blue.png" 
+         alt="E-Digit Logo"
+         class="logo">
+    <div>
+      <h2 class="hero-text-title">E-DIGIT</h2>
+      <p class="mb-0">Professional Technology Education</p>
+    </div>
+  </header>
+
+</div>
+  
+
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+      <strong>ONLINE</strong>
+      <span class="ms-4">Digital Skills Programs</span>
+      <span class="ms-4">Web Development</span>
+      <span class="ms-4">Data Analytics</span>
+      <span class="ms-4">Cybersecurity</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="row g-0">
+
+      <section class="col-lg-5 hero-text">
+        <h1>We create pathways for:</h1>
+
+        <h2>Practical Tech Skills</h2>
+
+        <p class="lead">
+          Learn coding, data analytics, cybersecurity, AI, and cloud computing
+          through hands-on professional training.
+        </p>
+
+        <button class="hero-btn mt-4">EXPLORE ALL PROGRAMS</button>
+
+        <p class="mt-4 mb-0">
+          Offered by E-Digit Institute
+        </p>
+      </section>
+
+      <section class="col-lg-7 hero-image"></section>
+
+    </main>
+
+    <!-- Featured Programs -->
+    <section class="container py-5">
+      <h2 class="text-center mb-4">Featured Programs</h2>
+
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="program-card">
+            <h5>Web Development</h5>
+            <p>HTML, CSS, JavaScript, Bootstrap, Django, and databases.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="program-card">
+            <h5>Data Analytics</h5>
+            <p>Excel, SQL, Python, Power BI, Tableau, and reporting.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="program-card">
+            <h5>Cybersecurity</h5>
+            <p>Networking, Linux, ethical hacking basics, and security tools.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="program-card">
+            <h5>AI Foundations</h5>
+            <p>AI tools, automation, prompt engineering, and applied projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="bg-light py-5">
+      <div class="container text-center">
+        <h2 class="mb-4">Why Choose E-Digit Institute?</h2>
+        <p class="lead">
+          We focus on practical skills, project-based learning, mentorship,
+          internships, and job readiness.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      © 2026 E-Digit Systems LLC | Contact | Privacy Policy | Social Media
+    </footer>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

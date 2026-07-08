@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Media Center | Worcester Church of Christ{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container py-5">
+        <h1 class="display-5 fw-bold">Media Center</h1>
+        <p class="lead mt-3">
+            Watch sermons, listen to Bible lessons, and grow through God’s Word.
+        </p>
+        <a href="{% url 'bible_study' %}" class="btn btn-warning btn-lg mt-3">
+            Request Bible Study
+        </a>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-7">
+                {% if featured and featured.video_url %}
+                    <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
+                        <iframe src="{{ featured.video_url }}" title="{{ featured.title }}" allowfullscreen></iframe>
+                    </div>
+                {% else %}
+                    <img src="{% static 'images/sermon-placeholder.jpg' %}" class="img-fluid rounded shadow-sm" alt="Featured sermon">
+                {% endif %}
+            </div>
+
+            <div class="col-lg-5">
+                <p class="text-primary fw-semibold mb-2">Featured Message</p>
+
+                {% if featured %}
+                    <h2 class="fw-bold">{{ featured.title }}</h2>
+                    <p class="text-muted mb-2">
+                        {% if featured.speaker %}Speaker: {{ featured.speaker.name }}<br>{% endif %}
+                        {% if featured.scripture %}Scripture: {{ featured.scripture }}<br>{% endif %}
+                        {{ featured.date_published }}
+                    </p>
+                    <p class="text-muted">{{ featured.summary }}</p>
+                    <a href="{% url 'media_detail' featured.slug %}" class="btn btn-primary">View Message</a>
+                {% else %}
+                    <h2 class="fw-bold">Latest Bible Message</h2>
+                    <p class="text-muted">
+                        Featured sermons and Bible lessons will appear here.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Explore Media</h2>
+            <p class="text-muted">
+                Browse sermons, Bible classes, livestreams, and audio lessons.
+            </p>
+        </div>
+
+        <div class="row g-4 text-center">
+
+            <div class="col-md-6 col-lg-3">
+                <a href="{% url 'sermons' %}" class="text-decoration-none text-dark">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Sermons</h5>
+                            <p class="text-muted">Sunday worship messages and gospel lessons.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="#" class="text-decoration-none text-dark">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Bible Classes</h5>
+                            <p class="text-muted">Studies for spiritual growth and discipleship.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="{% url 'livestream' %}" class="text-decoration-none text-dark">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Livestreams</h5>
+                            <p class="text-muted">Watch current and previous worship services.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="#" class="text-decoration-none text-dark">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Audio Lessons</h5>
+                            <p class="text-muted">Listen to messages and Bible teaching.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1">Latest Messages</h2>
+                <p class="text-muted mb-0">Recent sermons and Bible lessons.</p>
+            </div>
+            <a href="{% url 'media_library' %}" class="btn btn-outline-primary">
+                View All
+            </a>
+        </div>
+
+        <div class="row g-4">
+            {% for item in latest %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+
+                        {% if item.thumbnail %}
+                            <img src="{{ item.thumbnail.url }}" class="card-img-top" alt="{{ item.title }}">
+                        {% else %}
+                            <img src="{% static 'images/sermon-placeholder.jpg' %}" class="card-img-top" alt="Media thumbnail">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <p class="text-primary fw-semibold mb-1">{{ item.get_media_type_display }}</p>
+                            <h5 class="fw-bold">{{ item.title }}</h5>
+
+                            <p class="text-muted small mb-2">
+                                {% if item.speaker %}{{ item.speaker.name }}<br>{% endif %}
+                                {% if item.scripture %}{{ item.scripture }}<br>{% endif %}
+                                {{ item.date_published }}
+                            </p>
+
+                            <p class="text-muted">
+                                {{ item.summary|truncatewords:20 }}
+                            </p>
+
+                            <a href="{% url 'media_detail' item.slug %}" class="btn btn-primary btn-sm">
+                                View Message
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-muted">No media items have been added yet.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container">
+        <h2 class="fw-bold">Would You Like to Study the Bible?</h2>
+        <p class="lead mt-3">
+            We would be happy to study God’s Word with you and answer your questions from Scripture.
+        </p>
+        <a href="{% url 'bible_study' %}" class="btn btn-warning btn-lg">
+            Request Bible Study
+        </a>
+    </div>
+</section>
+
+{% endblock %}

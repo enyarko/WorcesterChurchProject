@@ -1,0 +1,78 @@
+Image Gallery = container + repeated cards + images + descriptions
+
+
+A CSS image gallery is just a repeated card layout:
+
+Gallery container
+  ↓
+Gallery item 1
+  ↓
+Image + Description
+
+Gallery item 2
+  ↓
+Image + Description
+
+Gallery item 3
+  ↓
+Image + Description
+
+The main idea is:
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img>
+    <div class="desc">Text</div>
+  </div>
+</div>
+Give feedback
+CSS controls the layout
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+This makes the images line up horizontally and move to the next row when the screen is small.
+
+Each image card
+.gallery-item {
+  width: 180px;
+  margin: 5px;
+  border: 1px solid #ccc;
+}
+
+This gives each image box:
+
+fixed width
+space around it
+border
+Image sizing
+.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+
+This means:
+
+Image fills the card width
+Image keeps its natural proportion
+Description
+.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+This creates space around the text and centers it.
+
+For E-Digit, you can use the same structure for a services gallery:
+
+Web Development
+AI Training
+Cybersecurity
+Cloud Computing
+Data Analytics
+Research Consulting
+
+So the pattern is:
+
+Image Gallery = container + repeated cards + images + descriptions

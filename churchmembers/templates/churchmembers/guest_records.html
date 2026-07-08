@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Records</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #16324f;
+      --gold: #c9a227;
+      --soft-bg: #eef5f9;
+      --muted: #6c757d;
+    }
+
+    body {
+      background: var(--soft-bg);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .page-card {
+      border-radius: 18px;
+      border-top: 7px solid var(--gold);
+    }
+
+    .page-title {
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .stat-card {
+      border-radius: 14px;
+      border: 1px solid #d8dee6;
+    }
+
+    .stat-card h6 {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .stat-card h3 {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      background-color: var(--navy);
+      border-color: var(--navy);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background-color: #0f2438;
+      border-color: #0f2438;
+    }
+
+    .table thead th {
+      background-color: var(--navy) !important;
+      color: white !important;
+      white-space: nowrap;
+    }
+
+    .action-buttons {
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container-fluid mt-5 mb-5 px-4">
+  <div class="card shadow p-4 page-card">
+
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+      <div>
+        <h2 class="page-title mb-0">Guest Records</h2>
+        <p class="text-muted mb-0">Manage guest visits, follow-ups, and contact records.</p>
+      </div>
+
+      <div class="d-flex gap-2 flex-wrap">
+        <a href="{% url 'welcome' %}" class="btn btn-outline-dark">
+          <i class="bi bi-house-door"></i> Home
+        </a>
+        <a href="{% url 'guest_information' %}" class="btn btn-primary">
+          <i class="bi bi-person-plus"></i> Add Guest
+        </a>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags|default:'success' }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="GET" class="row g-3 mb-4">
+      <div class="col-md-3">
+        <label class="form-label">Search</label>
+        <input type="text" name="search" class="form-control" value="{{ search }}" placeholder="Name, phone, email, church...">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Start Date</label>
+        <input type="date" name="start_date" class="form-control" value="{{ start_date }}">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">End Date</label>
+        <input type="date" name="end_date" class="form-control" value="{{ end_date }}">
+      </div>
+
+      <div class="col-md-3 d-flex align-items-end gap-2">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-funnel"></i> Filter
+        </button>
+        <a href="{% url 'guest_records' %}" class="btn btn-outline-secondary">
+          Clear
+        </a>
+      </div>
+    </form>
+
+    <div class="row mb-4 g-3">
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm stat-card">
+          <div class="card-body">
+            <h6>Total Guests</h6>
+            <h3>{{ total_guests }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm stat-card">
+          <div class="card-body">
+            <h6>First-Time Guests</h6>
+            <h3>{{ first_time_count }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm stat-card">
+          <div class="card-body">
+            <h6>Returning Guests</h6>
+            <h3>{{ returning_count }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm stat-card">
+          <div class="card-body">
+            <h6>Pending Follow-Up</h6>
+            <h3>{{ follow_up_pending_count }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table id="guestRecordsTable" class="table table-bordered table-striped align-middle">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Visit Date</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Visit Type</th>
+            <th>Invitation Source</th>
+            <th>Invited By</th>
+            <th>Follow-Up</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for guest in guests %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ guest.visit_date|default:"-" }}</td>
+              <td>{{ guest.display_name|default:guest.first_name }}</td>
+              <td>{{ guest.mobile_phone|default:guest.home_phone|default:"-" }}</td>
+              <td>{{ guest.email|default:"-" }}</td>
+
+              <td>
+                {% if guest.address %}
+                  {{ guest.address.city|default:"-" }}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+
+              <td>{{ guest.visit_type|default:"-" }}</td>
+              <td>{{ guest.invitation_source|default:"-" }}</td>
+
+              <td>
+                {% if guest.invited_by_member %}
+                  {{ guest.invited_by_member.first_name }} {{ guest.invited_by_member.last_name }}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+
+              <td>
+                {% if guest.follow_up_completed %}
+                  <span class="badge bg-success">Completed</span>
+                {% else %}
+                  <span class="badge bg-warning text-dark">Pending</span>
+                {% endif %}
+              </td>
+
+              <td class="text-center action-buttons">
+                <a href="{% url 'guest_detail' guest.id %}" class="btn btn-info btn-sm text-white" title="View guest">
+                  <i class="bi bi-eye"></i> View
+                </a>
+
+                <a href="{% url 'edit_guest' guest.id %}" class="btn btn-primary btn-sm" title="Edit guest">
+                  <i class="bi bi-pencil-square"></i> Edit
+                </a>
+
+                <form method="POST" action="{% url 'delete_guest' guest.id %}" class="d-inline delete-form">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-danger btn-sm" title="Delete guest">
+                    <i class="bi bi-trash"></i> Delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="11" class="text-center">No guest records found for this period.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#guestRecordsTable').DataTable({
+      pageLength: 10,
+      ordering: true,
+      responsive: true,
+      dom: 'Bfrtip',
+      buttons: ['copy', 'excel', 'pdf', 'print']
+    });
+  });
+
+  document.querySelectorAll('.delete-form').forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      Swal.fire({
+        title: 'Delete guest record?',
+        text: 'This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Yes, delete',
+        cancelButtonText: 'Cancel'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          form.submit();
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

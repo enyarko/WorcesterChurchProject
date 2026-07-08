@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Guest</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background:#eef5f9;">
+<div class="container mt-5 mb-5">
+  <div class="card shadow p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Edit Guest</h2>
+      <a href="{% url 'guest_records' %}" class="btn btn-outline-dark">Back</a>
+    </div>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="row g-3">
+        <div class="col-md-3">
+          <label class="form-label">Visit Date</label>
+          <input type="date" name="visit_date" class="form-control" value="{{ guest.visit_date|date:'Y-m-d' }}">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">First Name</label>
+          <input type="text" name="first_name" class="form-control" value="{{ guest.first_name }}" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Middle Name</label>
+          <input type="text" name="middle_name" class="form-control" value="{{ guest.middle_name }}">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Surname</label>
+          <input type="text" name="surname" class="form-control" value="{{ guest.surname }}" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Preferred Name</label>
+          <input type="text" name="preferred_name" class="form-control" value="{{ guest.preferred_name }}">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" value="{{ guest.email }}">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Home Phone</label>
+          <input type="tel" name="home_phone" class="form-control" value="{{ guest.home_phone }}">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Mobile Phone</label>
+          <input type="tel" name="mobile_phone" class="form-control" value="{{ guest.mobile_phone }}">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Visit Type</label>
+          <select name="visit_type" class="form-select">
+            <option value="">Select visit type</option>
+            {% for value, label in visit_type_choices %}
+              <option value="{{ value }}" {% if guest.visit_type == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Invitation Source</label>
+          <select name="invitation_source" class="form-select">
+            <option value="">Select source</option>
+            {% for value, label in invitation_source_choices %}
+              <option value="{{ value }}" {% if guest.invitation_source == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Invited By Member</label>
+          <select name="invited_by_member" class="form-select">
+            <option value="">Select member</option>
+            {% for member in members %}
+              <option value="{{ member.id }}" {% if guest.invited_by_member_id == member.id %}selected{% endif %}>{{ member.first_name }} {{ member.last_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Assigned Follow-Up Person</label>
+          <select name="assigned_follow_up_person" class="form-select">
+            <option value="">Select person</option>
+            {% for member in members %}
+              <option value="{{ member.id }}" {% if guest.assigned_follow_up_person_id == member.id %}selected{% endif %}>{{ member.first_name }} {{ member.last_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Follow-Up Date</label>
+          <input type="date" name="follow_up_date" class="form-control" value="{{ guest.follow_up_date|date:'Y-m-d' }}">
+        </div>
+
+        <div class="col-md-6 d-flex align-items-end">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="follow_up_completed" value="true" id="follow_up_completed" {% if guest.follow_up_completed %}checked{% endif %}>
+            <label class="form-check-label" for="follow_up_completed">Follow-Up Completed</label>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Prayer Request</label>
+          <textarea name="prayer_request" class="form-control" rows="3">{{ guest.prayer_request }}</textarea>
+        </div>
+        <div class="col-12">
+          <label class="form-label">Notes</label>
+          <textarea name="notes" class="form-control" rows="3">{{ guest.notes }}</textarea>
+        </div>
+      </div>
+
+      <div class="mt-4 d-flex justify-content-between">
+        <a href="{% url 'guest_records' %}" class="btn btn-outline-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update Guest</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

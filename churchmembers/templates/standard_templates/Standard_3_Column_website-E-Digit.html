@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #e9ecef;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Top Navigation */
+ul.topnav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+}
+
+ul.topnav li a {
+  display: block;
+  color: #f1f1f1;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover {
+  background-color: #dddddd;
+  color: black;
+}
+
+/* Main layout */
+main {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+}
+
+/* Left and right sidebars */
+.sidebar {
+  background-color: #e9ecef;
+  width: 20%;
+  min-height: 250px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Main content */
+.content {
+  background-color: #e9ecef;
+  width: 60%;
+  min-height: 250px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background-color: #e9ecef;
+  padding: 30px;
+  text-align: center;
+  margin: 12px;
+}
+
+/* Mobile responsive layout */
+@media screen and (max-width: 768px) {
+  ul.topnav {
+    flex-direction: column;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .content {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Header</h2>
+</header>
+
+<ul class="topnav">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Members</a></li>
+  <li><a href="#">Guests</a></li>
+  <li><a href="#">Attendance</a></li>
+  <li><a href="#">Reports</a></li>
+</ul>
+
+<main>
+  <aside class="sidebar">
+    Content
+  </aside>
+
+  <section class="content">
+    Main Content
+  </section>
+
+  <aside class="sidebar">
+    Content
+  </aside>
+</main>
+
+<footer>
+  <h3>Footer</h3>
+</footer>
+
+</body>
+</html>

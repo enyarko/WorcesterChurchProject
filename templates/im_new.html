@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}I'm New | Worcester Church of Christ{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container py-5">
+        <h1 class="display-5 fw-bold">Planning Your First Visit?</h1>
+        <p class="lead mt-3">
+            We are glad you are considering worshiping with Worcester Church of Christ.
+        </p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg mt-3">
+            Contact Us Before You Visit
+        </a>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 text-center">
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Sunday Bible Class</h5>
+                        <p class="display-6 fw-bold text-primary">9:00 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Sunday Worship</h5>
+                        <p class="display-6 fw-bold text-primary">10:00 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Wednesday Bible Study</h5>
+                        <p class="display-6 fw-bold text-primary">7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">What to Expect</h2>
+            <p class="text-muted">
+                We want your first visit to feel welcoming, simple, and spiritually encouraging.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Bible Teaching</h5>
+                        <p class="text-muted">
+                            Our teaching is centered on Scripture and the message of Christ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Congregational Singing</h5>
+                        <p class="text-muted">
+                            Worship includes heartfelt singing as the congregation praises God together.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Prayer & Communion</h5>
+                        <p class="text-muted">
+                            We pray together and remember the Lord’s death through communion.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Welcoming Fellowship</h5>
+                        <p class="text-muted">
+                            You will meet Christians who are glad to welcome you and your family.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Frequently Asked Questions</h2>
+
+                <div class="accordion mt-4" id="visitorFAQ">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                What should I wear?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#visitorFAQ">
+                            <div class="accordion-body">
+                                You are welcome to come as you are. Some dress formally, while others dress casually.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                Are children welcome?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#visitorFAQ">
+                            <div class="accordion-body">
+                                Yes. Children are welcome, and Bible classes may be available for different age groups.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                How long is worship?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#visitorFAQ">
+                            <div class="accordion-body">
+                                Worship usually lasts about one hour, depending on the service and special activities.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                Can I request a Bible study?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#visitorFAQ">
+                            <div class="accordion-body">
+                                Yes. We would be happy to study the Bible with you and answer your questions from Scripture.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="p-4 bg-light rounded shadow-sm">
+                    <h3 class="fw-bold">Before You Visit</h3>
+                    <p class="text-muted">
+                        Let us know you are coming and we can help answer your questions before you arrive.
+                    </p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary me-2">Contact Us</a>
+                    <a href="{% url 'bible_study' %}" class="btn btn-outline-primary">Request Bible Study</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

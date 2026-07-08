@@ -1,0 +1,132 @@
+:root {
+    --primary-blue: #0b3d91;
+    --dark-blue: #082b63;
+    --gold: #d4a017;
+    --light-bg: #f8f9fa;
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+.navbar-brand {
+    color: var(--primary-blue) !important;
+    letter-spacing: 0.3px;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-dark) !important;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+.btn-warning {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: #111;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+.bg-dark {
+    background: linear-gradient(
+        rgba(8, 43, 99, 0.92),
+        rgba(8, 43, 99, 0.92)
+    ) !important;
+}
+
+.display-4,
+.display-5,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    letter-spacing: -0.4px;
+}
+
+.lead {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.text-primary {
+    color: var(--primary-blue) !important;
+}
+
+footer {
+    background-color: #081f3f !important;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #eef4ff;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--primary-blue);
+}
+
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2.3rem;
+    }
+
+    .display-5 {
+        font-size: 2rem;
+    }
+
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+}

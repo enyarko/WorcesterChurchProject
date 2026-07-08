@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Detail</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    body { background:#eef5f9; font-family:"Segoe UI", Arial, sans-serif; }
+    .page-card { border-radius:18px; border-top:7px solid #c9a227; }
+    .section-title { color:#16324f; font-weight:800; border-bottom:1px solid #dee2e6; padding-bottom:8px; margin-bottom:16px; }
+    .label { font-weight:700; color:#16324f; }
+  </style>
+</head>
+<body>
+<div class="container mt-5 mb-5">
+  <div class="card shadow p-4 page-card">
+
+    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-4">
+      <div>
+        <h2 class="mb-1">{{ guest.display_name|default:guest.first_name }}</h2>
+        <p class="text-muted mb-0">Guest profile and follow-up record</p>
+      </div>
+
+      <div class="d-flex gap-2 flex-wrap">
+        <a href="{% url 'guest_records' %}" class="btn btn-outline-dark">
+          <i class="bi bi-arrow-left"></i> Back
+        </a>
+        <a href="{% url 'edit_guest' guest.id %}" class="btn btn-primary">
+          <i class="bi bi-pencil-square"></i> Edit
+        </a>
+        <button onclick="window.print()" class="btn btn-outline-secondary">
+          <i class="bi bi-printer"></i> Print
+        </button>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="section-title">Contact Information</h5>
+            <p><span class="label">Name:</span> {{ guest.first_name }} {{ guest.middle_name }} {{ guest.surname }}</p>
+            <p><span class="label">Preferred Name:</span> {{ guest.preferred_name|default:"-" }}</p>
+            <p><span class="label">Email:</span> {{ guest.email|default:"-" }}</p>
+            <p><span class="label">Home Phone:</span> {{ guest.home_phone|default:"-" }}</p>
+            <p><span class="label">Mobile Phone:</span> {{ guest.mobile_phone|default:"-" }}</p>
+            <p><span class="label">Preferred Contact:</span> {{ guest.preferred_contact_method|default:"-" }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="section-title">Visit Information</h5>
+            <p><span class="label">Visit Date:</span> {{ guest.visit_date|default:"-" }}</p>
+            <p><span class="label">Visit Type:</span> {{ guest.visit_type|default:"-" }}</p>
+            <p><span class="label">Invitation Source:</span> {{ guest.invitation_source|default:"-" }}</p>
+            <p><span class="label">Invited By:</span>
+              {% if guest.invited_by_member %}
+                {{ guest.invited_by_member.first_name }} {{ guest.invited_by_member.last_name }}
+              {% else %}-{% endif %}
+            </p>
+            <p><span class="label">Home Church:</span> {{ guest.home_church|default:"-" }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="section-title">Follow-Up</h5>
+            <p><span class="label">Assigned Person:</span>
+              {% if guest.assigned_follow_up_person %}
+                {{ guest.assigned_follow_up_person.first_name }} {{ guest.assigned_follow_up_person.last_name }}
+              {% else %}-{% endif %}
+            </p>
+            <p><span class="label">Follow-Up Date:</span> {{ guest.follow_up_date|default:"-" }}</p>
+            <p><span class="label">Status:</span>
+              {% if guest.follow_up_completed %}
+                <span class="badge bg-success">Completed</span>
+              {% else %}
+                <span class="badge bg-warning text-dark">Pending</span>
+              {% endif %}
+            </p>
+            <p><span class="label">Would Like Visit:</span> {{ guest.would_like_visit }}</p>
+            <p><span class="label">Would Like More Info:</span> {{ guest.would_like_more_info }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="section-title">Notes and Prayer</h5>
+            <p><span class="label">Prayer Request:</span><br>{{ guest.prayer_request|default:"-" }}</p>
+            <p><span class="label">Notes:</span><br>{{ guest.notes|default:"-" }}</p>
+            <p><span class="label">Invitation Notes:</span><br>{{ guest.invitation_notes|default:"-" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

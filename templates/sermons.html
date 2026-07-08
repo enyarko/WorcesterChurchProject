@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sermons | Worcester Church of Christ{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container py-5">
+        <h1 class="display-5 fw-bold">Sermons</h1>
+        <p class="lead mt-3">
+            Listen, watch, and grow through Bible-based teaching.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Latest Sermons</h2>
+            <p class="text-muted">
+                Recent lessons from worship services and Bible studies.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/sermon-placeholder.jpg' %}" class="card-img-top" alt="Sermon image">
+                    <div class="card-body">
+                        <p class="text-primary fw-semibold mb-1">Sunday Sermon</p>
+                        <h5 class="fw-bold">Walking by Faith</h5>
+                        <p class="text-muted small mb-2">
+                            Speaker: Nat Kissi<br>
+                            Scripture: 2 Corinthians 5:7
+                        </p>
+                        <p class="text-muted">
+                            A Bible lesson encouraging Christians to trust God and walk faithfully.
+                        </p>
+                        <a href="#" class="btn btn-primary btn-sm">Watch Sermon</a>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Notes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/sermon-placeholder.jpg' %}" class="card-img-top" alt="Sermon image">
+                    <div class="card-body">
+                        <p class="text-primary fw-semibold mb-1">Bible Study</p>
+                        <h5 class="fw-bold">Growing in Christ</h5>
+                        <p class="text-muted small mb-2">
+                            Speaker: Teacher Name<br>
+                            Scripture: 2 Peter 3:18
+                        </p>
+                        <p class="text-muted">
+                            A study on spiritual growth, maturity, and daily discipleship.
+                        </p>
+                        <a href="#" class="btn btn-primary btn-sm">Watch Sermon</a>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Notes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{% static 'images/sermon-placeholder.jpg' %}" class="card-img-top" alt="Sermon image">
+                    <div class="card-body">
+                        <p class="text-primary fw-semibold mb-1">Sunday Sermon</p>
+                        <h5 class="fw-bold">The Love of Christ</h5>
+                        <p class="text-muted small mb-2">
+                            Speaker: Nat Kissi<br>
+                            Scripture: John 13:34-35
+                        </p>
+                        <p class="text-muted">
+                            A lesson about Christian love, service, and unity in the church.
+                        </p>
+                        <a href="#" class="btn btn-primary btn-sm">Watch Sermon</a>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Notes</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="fw-bold">Looking for a Bible Study?</h2>
+        <p class="text-muted">
+            We would be happy to study the Bible with you personally.
+        </p>
+        <a href="{% url 'bible_study' %}" class="btn btn-primary px-4">
+            Request Bible Study
+        </a>
+    </div>
+</section>
+
+{% endblock %}

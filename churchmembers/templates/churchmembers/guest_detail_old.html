@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guest Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background:#eef5f9;">
+
+<div class="container mt-5">
+    <div class="card shadow p-4">
+
+        <div class="d-flex justify-content-between mb-4">
+            <h2>Guest Detail</h2>
+            <a href="{% url 'guest_records' %}" class="btn btn-outline-dark">Back</a>
+        </div>
+
+        <p><strong>Name:</strong> {{ guest.first_name }} {{ guest.middle_name }} {{ guest.surname }}</p>
+        <p><strong>Preferred Name:</strong> {{ guest.preferred_name }}</p>
+        <p><strong>Visit Date:</strong> {{ guest.visit_date }}</p>
+        <p><strong>Email:</strong> {{ guest.email }}</p>
+        <p><strong>Home Phone:</strong> {{ guest.home_phone }}</p>
+        <p><strong>Mobile Phone:</strong> {{ guest.mobile_phone }}</p>
+        <p><strong>Visit Type:</strong> {{ guest.visit_type }}</p>
+        <p><strong>Invitation Source:</strong> {{ guest.invitation_source }}</p>
+
+        {% if guest.invited_by_member %}
+            <p><strong>Invited By:</strong> {{ guest.invited_by_member.first_name }} {{ guest.invited_by_member.last_name }}</p>
+        {% endif %}
+
+        {% if guest.assigned_follow_up_person %}
+            <p><strong>Follow-Up Person:</strong> {{ guest.assigned_follow_up_person.first_name }} {{ guest.assigned_follow_up_person.last_name }}</p>
+        {% endif %}
+
+        <p><strong>Follow-Up Date:</strong> {{ guest.follow_up_date }}</p>
+        <p><strong>Follow-Up Completed:</strong> {{ guest.follow_up_completed }}</p>
+
+        <p><strong>Prayer Request:</strong> {{ guest.prayer_request }}</p>
+        <p><strong>Notes:</strong> {{ guest.notes }}</p>
+
+    </div>
+</div>
+
+</body>
+</html>

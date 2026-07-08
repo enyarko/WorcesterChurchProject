@@ -1,0 +1,43 @@
+CSS Navigation Bars
+CSS Navigation Bars
+A navigation bar is an important component of web design.
+
+Navigation bars helps users to easily navigate between different sections of a website.
+
+Navigation bars are typically built with HTML list elements ( <ul> and <li>), and then styled with CSS to get a great look.
+
+A navigation bar is typically located at the top or at the side of a webpage.
+
+A vertical navbar:
+
+Home
+News
+Contact
+About
+A horizontal navbar:
+
+HomeNewsContactAbout
+Navigation Bar = List of Links
+A navigation bar is basically a list of links, so using the HTML <ul> and <li> elements makes perfect sense:
+
+
+
+Now let's remove the bullets and the margins and padding from the <ul> element:
+
+
+Example explained:
+
+Set list-style-type: none; - Removes the bullet points from list
+Set margin: 0; - Resets default browser margins
+Set padding: 0; - Resets default browser paddings
+Note: The HTML and CSS code in the example above is the base code used for both vertical and horizontal navigation bars, which you will learn more about in the next chapters.
+
+
+
+Active State
+Now we add an "active" class to highlight the link corresponding to the current page to let the user know which page/section he/she is on:
+
+Home
+News
+Contact
+About

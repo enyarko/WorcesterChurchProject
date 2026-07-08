@@ -1,0 +1,11 @@
+CSS Horizontal Navigation Bar
+In a horizontal navigation bar, the navigation links are stacked horizontally (next to each other), and is typically aligned on the top of a webpage.
+
+The basics of a horizontal navigation bar is an unordered list (<ul>), with list items (<li>), each holding a link (<a>), as shown in the Navbar Intro page.
+
+It is also common to add a <nav> element around the <ul> element, that will serve as a container for your navigation bar.
+
+Horizontal Navbar Using Float
+One way of creating a horizontal navigation bar is to add the float property to the <li> elements.
+
+Here we create a basic horizontal navigation bar with a dark background color and change the background color of the links when the user moves the mouse over them:

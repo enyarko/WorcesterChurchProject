@@ -1,0 +1,86 @@
+This is a professionally structured, content-rich landing page. It follows a clear visual hierarchy and guides visitors from awareness to action. Here's the layout broken down section by section:
+
++-------------------------------------------------------------+
+| 1. Header                                                   |
+| Logo | Navigation | Search/Login                            |
++-------------------------------------------------------------+
+
++-------------------------------------------------------------+
+| 2. Hero Section                                             |
+| Text (Left) | Large Hero Image (Right)                      |
++-------------------------------------------------------------+
+
++-------------------------------------------------------------+
+| 3. Introduction                                              |
+| Section Heading                                              |
+| Brief Description                                            |
++-------------------------------------------------------------+
+
++-------------------------------------------------------------+
+| 4. Search & Filter                                           |
+| Search Box                                                   |
+| Sidebar Categories | Course Cards Grid                       |
++-------------------------------------------------------------+
+
++-------------------------------------------------------------+
+| 5. Featured Statistics                                       |
+| Participants | Countries | Satisfaction                      |
++-------------------------------------------------------------+
+
++-------------------------------------------------------------+
+| 6. Institutional Credibility                                 |
+| Rankings | Awards | Recognition                              |
++-------------------------------------------------------------+
+
++-------------------------------------------------------------+
+| 7. Testimonials                                              |
+| Student Reviews                                              |
++-------------------------------------------------------------+
+
++-------------------------------------------------------------+
+| 8. Footer                                                    |
+| Logo | Contact | Copyright | Social Links                   |
++-------------------------------------------------------------+
+
+
+
+Section 1: Header
+
+---------------------------------------------------------
+| Logo | Navigation Menu | Search/Login                |
+---------------------------------------------------------
+
+Purpose
+
+Company branding
+Navigation
+User access
+
+Bootstrap structure:
+
+
+Code:
+<header class="container-fluid">
+    <div class="row align-items-center">
+
+        <div class="col-lg-3">
+            Logo
+        </div>
+
+        <div class="col-lg-9">
+            Navigation
+        </div>
+
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+

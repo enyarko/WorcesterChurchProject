@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Us | Worcester Church of Christ{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container py-5">
+        <h1 class="display-5 fw-bold">About Worcester Church of Christ</h1>
+        <p class="lead mt-3">
+            A Bible-based church committed to worship, fellowship, service, and spiritual growth.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Who We Are</h2>
+                <p class="text-muted">
+                    Worcester Church of Christ is a congregation of Christians seeking to follow
+                    the teachings of Jesus Christ and the pattern of the New Testament.
+                </p>
+                <p class="text-muted">
+                    We are committed to worshiping God, studying Scripture, encouraging one another,
+                    serving our community, and helping people grow in faith.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="p-4 bg-light rounded shadow-sm">
+                    <h4 class="fw-bold">Our Mission</h4>
+                    <p class="text-muted mb-0">
+                        To glorify God by teaching the gospel, strengthening believers,
+                        serving others, and helping souls grow in Christ.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">What We Value</h2>
+            <p class="text-muted">Our faith and practice are shaped by Scripture.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Biblical Teaching</h5>
+                        <p class="text-muted">
+                            We seek to teach and follow God’s Word with humility, clarity, and conviction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Christ-Centered Worship</h5>
+                        <p class="text-muted">
+                            Our worship is focused on honoring God and remembering the sacrifice of Christ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Loving Fellowship</h5>
+                        <p class="text-muted">
+                            We encourage one another as members of God’s family and servants of Christ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold">Want to Learn More?</h2>
+        <p class="text-muted">
+            We would be glad to answer your questions and study the Bible with you.
+        </p>
+        <a href="{% url 'bible_study' %}" class="btn btn-primary px-4">
+            Request Bible Study
+        </a>
+    </div>
+</section>
+
+{% endblock %}

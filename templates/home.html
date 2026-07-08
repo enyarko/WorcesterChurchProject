@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | Worcester Church of Christ{% endblock %}
+
+{% block content %}
+
+<section class="py-5 text-white text-center bg-dark">
+    <div class="container py-5">
+        <h1 class="display-4 fw-bold">Welcome to Worcester Church of Christ</h1>
+        <p class="lead mt-3">
+            A Bible-based church following Christ and the New Testament.
+        </p>
+
+        <div class="mt-4">
+            <a href="{% url 'im_new' %}" class="btn btn-primary btn-lg me-2">Plan Your Visit</a>
+            <a href="{% url 'livestream' %}" class="btn btn-outline-light btn-lg me-2">Watch Live</a>
+            <a href="{% url 'bible_study' %}" class="btn btn-warning btn-lg">Request Bible Study</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4 text-center">
+
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Sunday Bible Class</h5>
+                        <p class="display-6 fw-bold text-primary">9:00 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Sunday Worship</h5>
+                        <p class="display-6 fw-bold text-primary">10:00 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Wednesday Bible Study</h5>
+                        <p class="display-6 fw-bold text-primary">7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold">Plan Your First Visit</h2>
+        <p class="text-muted mt-3">
+            Visiting a church for the first time can feel unfamiliar. We want you to know
+            what to expect and feel welcome from the moment you arrive.
+        </p>
+        <a href="{% url 'im_new' %}" class="btn btn-primary mt-3">Learn What to Expect</a>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Connect and Grow</h2>
+            <p class="text-muted">Find a ministry where you can worship, serve, and grow.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Youth Ministry</h5>
+                        <p class="text-muted">Helping young people grow in faith and service.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Bible Studies</h5>
+                        <p class="text-muted">Personal and group Bible studies for spiritual growth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Fellowship</h5>
+                        <p class="text-muted">Building relationships through Christian encouragement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'ministries' %}" class="btn btn-outline-primary">View All Ministries</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 text-center">
+    <div class="container">
+        <h2 class="fw-bold">Interested in Studying the Bible?</h2>
+        <p class="text-muted">
+            We would be happy to study the Bible with you and answer your questions from Scripture.
+        </p>
+        <a href="{% url 'bible_study' %}" class="btn btn-primary px-4">Request Bible Study</a>
+    </div>
+</section>
+
+{% endblock %}

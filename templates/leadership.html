@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Leadership | Worcester Church of Christ{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container py-5">
+        <h1 class="display-5 fw-bold">Meet Our Leadership</h1>
+        <p class="lead mt-3">
+            Serving the church with faith, humility, wisdom, and love.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Minister</h2>
+            <p class="text-muted">
+                Dedicated to preaching the gospel, teaching Scripture, and encouraging spiritual growth.
+            </p>
+        </div>
+
+        <div class="row g-5 align-items-center mb-5">
+            <div class="col-lg-5 text-center">
+                <div class="bg-light rounded shadow-sm p-4">
+                    <img src="{% static 'images/minister-placeholder.jpg' %}"
+                         class="img-fluid rounded-circle mb-3"
+                         alt="Minister photo"
+                         style="max-width: 260px;">
+                    <h4 class="fw-bold mb-1">Nat Kissi</h4>
+                    <p class="text-primary fw-semibold">Evangelist / Minister</p>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <h3 class="fw-bold">A Message from Our Minister</h3>
+                <p class="text-muted">
+                    We are thankful for every opportunity to share the gospel of Jesus Christ
+                    and welcome souls into fellowship, worship, and Bible study.
+                </p>
+                <p class="text-muted">
+                    At Worcester Church of Christ, our desire is to follow the New Testament,
+                    encourage one another in love, and help every person grow spiritually.
+                </p>
+
+                <a href="{% url 'contact' %}" class="btn btn-primary me-2">Contact Us</a>
+                <a href="{% url 'sermons' %}" class="btn btn-outline-primary">View Sermons</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Church Leaders</h2>
+            <p class="text-muted">
+                Leaders serve by guiding, teaching, encouraging, and caring for the congregation.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body">
+                        <img src="{% static 'images/leader-placeholder.jpg' %}"
+                             class="img-fluid rounded-circle mb-3"
+                             alt="Leader photo"
+                             style="width: 140px; height: 140px; object-fit: cover;">
+                        <h5 class="fw-bold">Leader Name</h5>
+                        <p class="text-primary fw-semibold">Elder</p>
+                        <p class="text-muted">
+                            Serving through teaching, encouragement, pastoral care, and spiritual guidance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body">
+                        <img src="{% static 'images/leader-placeholder.jpg' %}"
+                             class="img-fluid rounded-circle mb-3"
+                             alt="Leader photo"
+                             style="width: 140px; height: 140px; object-fit: cover;">
+                        <h5 class="fw-bold">Leader Name</h5>
+                        <p class="text-primary fw-semibold">Deacon</p>
+                        <p class="text-muted">
+                            Supporting the work of the church through service, coordination, and ministry leadership.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body">
+                        <img src="{% static 'images/leader-placeholder.jpg' %}"
+                             class="img-fluid rounded-circle mb-3"
+                             alt="Leader photo"
+                             style="width: 140px; height: 140px; object-fit: cover;">
+                        <h5 class="fw-bold">Leader Name</h5>
+                        <p class="text-primary fw-semibold">Ministry Leader</p>
+                        <p class="text-muted">
+                            Helping members connect, grow, and serve through active ministry involvement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold">Would You Like to Speak With Us?</h2>
+        <p class="text-muted">
+            We would be glad to answer your questions, pray with you, or help you learn more about the church.
+        </p>
+        <a href="{% url 'contact' %}" class="btn btn-primary px-4">
+            Contact Leadership
+        </a>
+    </div>
+</section>
+
+{% endblock %}

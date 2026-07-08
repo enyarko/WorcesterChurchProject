@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Digit Systems</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f6f8;
+    }
+
+    header {
+      background-color: #001f3f;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .header-actions input {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .header-actions a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: #800020;
+      padding: 15px 8%;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    .hero {
+      background-color: white;
+      padding: 80px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #001f3f;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-image {
+      background-color: #d9e6f2;
+      height: 320px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #001f3f;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .btn-primary {
+      background-color: #800020;
+      color: white;
+    }
+
+    .btn-secondary {
+      background-color: #001f3f;
+      color: white;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #001f3f;
+      font-size: 34px;
+      margin-bottom: 40px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #800020;
+      margin-bottom: 10px;
+    }
+
+    .about {
+      background-color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-image {
+      background-color: #d9e6f2;
+      height: 300px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #001f3f;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .about h2 {
+      color: #001f3f;
+      margin-bottom: 15px;
+    }
+
+    .products {
+      background-color: #f4f6f8;
+    }
+
+    .product-image {
+      height: 140px;
+      background-color: #d9e6f2;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #001f3f;
+      font-weight: bold;
+    }
+
+    .testimonials {
+      background-color: white;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .review {
+      background-color: #f4f6f8;
+      padding: 25px;
+      border-left: 5px solid #800020;
+      border-radius: 8px;
+    }
+
+    .cta {
+      background-color: #800020;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .cta .btn {
+      background-color: white;
+      color: #800020;
+    }
+
+    footer {
+      background-color: #001f3f;
+      color: white;
+      padding: 50px 8% 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    footer h3 {
+      color: #d4af37;
+      margin-bottom: 15px;
+    }
+
+    footer a {
+      display: block;
+      color: #ddd;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+
+    footer a:hover {
+      color: #d4af37;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #ffffff33;
+      padding-top: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .card-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">E-Digit Systems</div>
+
+    <div class="header-actions">
+      <input type="search" placeholder="Search..." />
+      <a href="#">Login</a>
+      <a href="#">Sign Up</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div>
+        <h1>Practical Technology Solutions for Businesses and Learners</h1>
+        <p>
+          We help businesses, students, churches, and professionals build
+          digital capacity through software development, data analytics,
+          cybersecurity, cloud solutions, and practical technology training.
+        </p>
+
+        <a href="#contact" class="btn btn-primary">Get Started</a>
+        <a href="#services" class="btn btn-secondary">Learn More</a>
+      </div>
+
+      <div class="hero-image">
+        Hero Image
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Featured Services</h2>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="icon">💻</div>
+          <h3>Software Development</h3>
+          <p>Custom web and business applications for organizations.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌐</div>
+          <h3>Web Design</h3>
+          <p>Modern, responsive websites for businesses and churches.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">📊</div>
+          <h3>Data Analytics</h3>
+          <p>Dashboards, reports, and business intelligence tools.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🔐</div>
+          <h3>Cybersecurity</h3>
+          <p>Training and basic security assessments for organizations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-image">
+        About Image
+      </div>
+
+      <div>
+        <h2>About E-Digit</h2>
+        <p>
+          E-Digit Systems provides practical technology solutions and training
+          for businesses, learners, churches, and community organizations.
+        </p>
+
+        <h3>Mission</h3>
+        <p>
+          To equip people and organizations with practical digital skills and
+          reliable technology solutions.
+        </p>
+
+        <h3>Vision</h3>
+        <p>
+          To become a trusted technology education and digital transformation
+          partner for communities and businesses.
+        </p>
+
+        <a href="#" class="btn btn-primary">Read More</a>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <h2 class="section-title">Featured Products / Projects</h2>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="product-image">Image</div>
+          <h3>Church Management System</h3>
+          <p>Manage members, guests, attendance, and communication.</p>
+        </article>
+
+        <article class="card">
+          <div class="product-image">Image</div>
+          <h3>Business Dashboard</h3>
+          <p>Track performance, revenue, clients, and operations.</p>
+        </article>
+
+        <article class="card">
+          <div class="product-image">Image</div>
+          <h3>Training Portal</h3>
+          <p>Support students, instructors, courses, and learning materials.</p>
+        </article>
+
+        <article class="card">
+          <div class="product-image">Image</div>
+          <h3>Data Warehouse Tool</h3>
+          <p>Organize data pipelines, reporting, and analytics workflows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2 class="section-title">Testimonials</h2>
+
+      <div class="review-grid">
+        <div class="review">
+          <p>
+            “E-Digit helped us understand how technology can support our work.”
+          </p>
+          <strong>Business Client</strong>
+        </div>
+
+        <div class="review">
+          <p>
+            “The training is practical, clear, and connected to real projects.”
+          </p>
+          <strong>Student Learner</strong>
+        </div>
+
+        <div class="review">
+          <p>
+            “A useful technology partner for churches and community groups.”
+          </p>
+          <strong>Community Partner</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to get started?</h2>
+      <p>Contact E-Digit today and begin your digital transformation journey.</p>
+      <a href="#contact" class="btn">Contact Us</a>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div class="footer-grid">
+      <div>
+        <h3>Company</h3>
+        <p>E-Digit Systems</p>
+        <p>Practical technology solutions for businesses and learners.</p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Email: info@edigitsystems.com</p>
+        <p>Phone: +1 (000) 000-0000</p>
+        <p>Worcester, Massachusetts</p>
+      </div>
+
+      <div>
+        <h3>Social Media</h3>
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2026 E-Digit Systems. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

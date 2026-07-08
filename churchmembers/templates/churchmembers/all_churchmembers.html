@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>ChurchMembers</h1>
+
+<ul>
+	{% for x in churchmembers %}
+	  <li>{{x.firstname}} {{x.lastname}} </li>
+	{% endfor %}
+</ul>
+
+</body>
+</html>

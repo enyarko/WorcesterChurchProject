@@ -1,0 +1,7 @@
+INSERT INTO Adminmember (firstname, lastname, phone, joined_date)
+SELECT firstname, lastname, phone, joined_date
+FROM Clients;
+
+
+SELECT firstname, lastname, phone, joined_date
+FROM Clients;

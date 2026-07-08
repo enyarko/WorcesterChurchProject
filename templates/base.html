@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Worcester Church of Christ{% endblock %}</title>
+
+    <meta name="description" content="{% block meta_description %}Worcester Church of Christ - A Bible-based church following Christ and the New Testament.{% endblock %}">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="{% url 'home' %}">
+                Worcester Church of Christ
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'im_new' %}">I'm New</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'leadership' %}">Leadership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ministries' %}">Ministries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'sermons' %}">Sermons</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary btn-sm px-3" href="{% url 'livestream' %}">
+                            Watch Live
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Worcester Church of Christ</h5>
+                    <p class="small">
+                        A Bible-based church committed to worship, fellowship,
+                        service, and spiritual growth.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h6 class="fw-bold">Service Times</h6>
+                    <p class="small mb-1">Sunday Bible Class: 9:00 AM</p>
+                    <p class="small mb-1">Sunday Worship: 10:00 AM</p>
+                    <p class="small mb-1">Wednesday Bible Study: 7:00 PM</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h6 class="fw-bold">Contact</h6>
+                    <p class="small mb-1">Worcester, Massachusetts</p>
+                    <p class="small mb-1">Email: info@worcestercoc.org</p>
+                    <p class="small mb-1">Phone: Coming Soon</p>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary my-4">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between small">
+                <p class="mb-0">&copy; {% now "Y" %} Worcester Church of Christ. All rights reserved.</p>
+                <p class="mb-0">Designed by E-Digit Systems LLC</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
